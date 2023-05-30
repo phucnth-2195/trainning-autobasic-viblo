@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class VibloPage extends BaseCommon{
+public class VibloPage extends BaseCommon {
     public WebDriver openPage() {
         String accessUrl = "https://accounts.viblo.asia/login";
         BaseCommon baseCommon = new BaseCommon();
@@ -19,10 +19,11 @@ public class VibloPage extends BaseCommon{
         PageFactory.initElements(driver, this);
         return baseCommon.driver;
     }
-    public  VibloPage() {
+
+    public VibloPage() {
         this.driver = DriverBase.buildSetupDriver();
         this.driver.get("https://accounts.viblo.asia/login");
-//        this.driver.manage().window().maximize(); // open fullscreen = F11
+//        this.driver.manage().window().maximize(); // open fullscreen = F11 //when executing with multiple TCs, system is quite lag
         PageFactory.initElements(driver, this);
     }
 
@@ -48,10 +49,7 @@ public class VibloPage extends BaseCommon{
     @FindBy(xpath = "//button[contains(@class,'el-button--primary')]")
     public WebElement loginBtn;
 
-
     //Find elements on Account page
     @FindBy(xpath = "//h1[@class='greeting-title']")
     public WebElement welcomeLb;
-
-
 }

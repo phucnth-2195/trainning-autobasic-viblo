@@ -12,24 +12,17 @@ public class BaseCommon {
     public WebDriver driver;
 
     // open browser with url
-    public  void openDriver(String url){
+    public void openDriver(String url) {
         driver.get(url);
     }
 
-    public void closeDriver(){
+    // close browser
+    public void closeDriver() {
         driver.close();
     }
 
-    // quit driver
-    public void quitDriver() {
-        if(driver != null) {
-            driver.quit();
-            driver = null;
-        }
-    }
-
     // wait to element displays
-    public void waitUntilDisplay(WebElement selectElement){
+    public void waitUntilDisplay(WebElement selectElement) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(selectElement));
     }
